@@ -1,0 +1,11 @@
+<div *ngIf="pizzas$ | async as pizzas">
+  <mat-card class="mb-2" *ngFor="let pizza of pizzas">
+    <mat-card-title>
+      {{ pizza.type }}
+    </mat-card-title>
+    <mat-card-content>
+      {{ pizza.description }}
+    </mat-card-content>
+    <img src="{{ 'http://localhost:4200/assets/' + pizza.preview }}">
+  </mat-card>
+</div>
