@@ -4,16 +4,18 @@ import { catchError } from 'rxjs/operators';
 
 import { Pizza } from '../models/pizza';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PizzaService {
+  apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   getPizzas(): Observable<Pizza[]> {
-    return this.http.get<Pizza[]>('http://localhost:4200/assets/database/pizza.json')
+    return this.http.get<Pizza[]>(`${this.apiUrl}/assets/database/pizza.json`)
       .pipe(
         catchError(this.handleError)
       );
