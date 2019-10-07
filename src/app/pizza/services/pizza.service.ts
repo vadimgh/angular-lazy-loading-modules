@@ -6,9 +6,7 @@ import { Pizza } from '../models/pizza';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PizzaService {
   apiUrl = environment.apiUrl;
 

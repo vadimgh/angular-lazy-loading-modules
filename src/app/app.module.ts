@@ -9,7 +9,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { PizzaComponent } from './pizza/pizza.component';
 
 const routes: Routes = [
   {
@@ -18,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'pizza',
-    component: PizzaComponent
+    loadChildren: () => import('./pizza/pizza.module').then(m => m.PizzaModule)
   },
   {
     path: '**',
@@ -29,8 +28,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    PizzaComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
